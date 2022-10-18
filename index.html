@@ -1,0 +1,334 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ludwigs Github Page</title>
+  <style>
+	  
+	:root {
+		--background-color: #fcdff8;
+		--cross-color-a: #bedbdd;
+		--cross-color-b: #dbffa1;
+		--button-color: #3d3963;
+		--card-color: #ffefef;
+	}
+
+	.button {
+		box-shadow: 10px 10px 0px rgba(200,100,0,.3);
+		background-color: var(--button-color);
+		color: var(--card-color);
+		margin-bottom: 15px;
+		padding: 7px;
+	}
+
+	.button:hover {
+		box-shadow: 6px 6px 0px rgba(200,100,0,.3);
+		transform: translate(4px, 4px);
+		filter: brightness(125%);
+	}
+
+	img, video {
+		border-radius: 10px;
+	}
+
+	hr {
+		color: var(--button-color);
+	}
+
+	body {
+		/* Background pattern by Lea Verou*/
+		background-color:var(--background-color);
+		/*background-image:
+			radial-gradient(circle at 100% 150%, var(--background-color) 24%, var(--cross-color-a) 24%, var(--cross-color-a) 28%, var(--background-color) 28%, var(--background-color) 36%, var(--cross-color-a) 36%, var(--cross-color-a) 40%, transparent 40%, transparent),
+			radial-gradient(circle at 0    150%, var(--background-color) 24%, var(--cross-color-a) 24%, var(--cross-color-a) 28%, var(--background-color) 28%, var(--background-color) 36%, var(--cross-color-a) 36%, var(--cross-color-a) 40%, transparent 40%, transparent),
+			radial-gradient(circle at 50%  100%, var(--cross-color-a) 10%, var(--background-color) 10%, var(--background-color) 23%, var(--cross-color-b) 23%, var(--cross-color-b) 30%, var(--background-color) 30%, var(--background-color) 43%, var(--cross-color-a) 43%, var(--cross-color-a) 50%, var(--background-color) 50%, var(--background-color) 63%, var(--cross-color-a) 63%, var(--cross-color-a) 71%, transparent 71%, transparent),
+			radial-gradient(circle at 100% 50%, var(--cross-color-a) 5%, var(--background-color) 5%, var(--background-color) 15%, var(--cross-color-b) 15%, var(--cross-color-b) 20%, var(--background-color) 20%, var(--background-color) 29%, var(--cross-color-a) 29%, var(--cross-color-a) 34%, var(--background-color) 34%, var(--background-color) 44%, var(--cross-color-a) 44%, var(--cross-color-a) 49%, transparent 49%, transparent),
+			radial-gradient(circle at 0    50%, var(--cross-color-a) 5%, var(--background-color) 5%, var(--background-color) 15%, var(--cross-color-b) 15%, var(--cross-color-b) 20%, var(--background-color) 20%, var(--background-color) 29%, var(--cross-color-a) 29%, var(--cross-color-a) 34%, var(--background-color) 34%, var(--background-color) 44%, var(--cross-color-a) 44%, var(--cross-color-a) 49%, transparent 49%, transparent);
+		background-size: 200px 100px;*/
+		margin: 0;
+		padding: 0;
+		font-family: Verdana, sans-serif;
+		color: var(--button-color);
+	}
+
+	.debug {
+		border: 2px dashed #ddd;
+		border-radius: 10px;
+	}
+
+	.box {
+		width: 90%;
+	}
+
+	.content-right {
+		font-size: 17px;
+	}
+
+	@media only screen and (min-width: 660px) {
+		.box {
+			width: 600px;
+		}
+	}
+
+	@media only screen and (min-width: 400px) {
+		h1 {
+			font-size: 2.8em;
+		}
+	}
+
+	/*===== Vertical Timeline =====*/
+	#conference-timeline {
+	  position: relative;
+	  max-width: 920px;
+	  width: 100%;
+	  margin: 0 auto;
+	}
+	#conference-timeline .timeline-start,
+	#conference-timeline .timeline-end {
+	  display: table;
+	  font-family: "Roboto", sans-serif;
+	  font-size: 18px;
+	  font-weight: 900;
+	  text-transform: uppercase;
+	  background: var(--button-color);
+	  padding: 15px 23px;
+	  color: #fff;
+	  max-width: 5%;
+	  width: 100%;
+	  text-align: center;
+	  margin: 3%
+	}
+
+	.chapter-start-title {
+	  display: table;
+	  font-family: "Roboto", sans-serif;
+	  font-size: 2em;
+	  font-weight: 900;
+	  text-transform: uppercase;
+	  padding: 15px 23px;
+	  color: var(--button-color);
+	  max-width: 5%;
+	  width: 100%;
+	  text-align: center;
+	  margin: 3%
+	}
+
+	#conference-timeline .conference-center-line {
+	  position: absolute;
+	  margin-left: 3%;
+	  left: 50px;
+	  width: 3px;
+	  height: 100%;
+	  top: 0;
+	  margin-left: -2px;
+	  background: var(--button-color);
+	  z-index: -1;
+	}
+	#conference-timeline .conference-timeline-content {
+	  padding-top: 37px;
+	}
+
+	.timeline-article {
+	  width: 100%;
+	  height: auto;
+	  position: relative;
+	  overflow: hidden;
+	  margin: 10px 0;
+	}
+
+	.top-article {
+	  width: 100%;
+	  height: auto;
+	  position: relative;
+	  overflow: hidden;
+	  margin: 20px 0;
+	}
+
+	.timeline-article .timeline-author {
+	  display: block;
+	  font-weight: 400;
+	  font-size: 14px;
+	  line-height: 24px;
+	  color: #24242471;
+	  text-align: right;
+	}
+
+	.timeline-article p {
+	  margin: 1% 1%;
+	  margin-top: 0.5em;
+	  padding: 0;
+	  font-weight: 400;
+	  color: #242424;
+	  font-family: Vollkorn;
+	  font-size: 18px;
+	  line-height: 24px;
+	  position: relative;
+	}
+	.timeline-article p span.article-number {
+	  position: absolute;
+	  font-weight: 300;
+	  font-size: 44px;
+	  top: 10px;
+	  left: -60px;
+	  color: var(--button-color);
+	}
+	.timeline-article .content-left-container {
+	  float: left;
+	}
+	.timeline-article .content-right-container {
+	  float: right;
+	}
+	.timeline-article .content-left:before,
+	.timeline-article .content-right:before{
+	  position: absolute;
+	  top: 20px;
+	  font-size: 23px;
+	  font-family: "FontAwesome";
+	  color: #fff;
+	}
+
+	/*===== // Vertical Timeline =====*/
+
+	/*===== // Resonsive Vertical Timeline =====*/
+  </style>
+  
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700,900' rel='stylesheet' type='text/css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- // Fonts -->
+</head>
+<body>
+  <!-- Vertical Timeline -->
+  <div class="box" style="max-width: 600px; margin: auto">
+
+	<h1 style="text-align: center; 
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		background: inherit;
+		filter: invert(1);
+  		mix-blend-mode: difference;
+		font-size: 45px; 
+		"> <div style="font-size: 0.7em;
+		font-family: cursive;">Ludwig's</div>
+		<div style="font-size: 1.3em; line-height: 0.8em;">Github Landing Page</div>
+		<div style="margin-top: 0.1em; font-size: 0.6em;
+		">Hello World!</div>
+	</h1>
+ 
+	<div class="top-article">
+		<div class="content-border" style="
+			z-index: -1;
+			background: repeating-linear-gradient(-45deg, #f00 0, #f00 10px, #fff 10px, #fff 20px, #00f 20px, #00f 30px, #fff 30px, #fff 40px);
+			padding: 10px;
+			margin-top: 80px;">
+			<div class="content-right" style="
+				width: auto;
+				max-width: 100%;
+				filter: brightness(125%);
+				position: relative;
+				border: 2px solid var(--button-color);
+				border-radius: 10px;
+				background-color: #fff;
+				box-shadow: 0 1px 3px rgba(0,0,0,.03);
+				padding: 25px 25px;
+				padding-top: 60px;">
+				<img src="https://cloud.bau-ha.us/apps/files_sharing/publicpreview/FRqGHiH5ajYNkQD?x=1366&y=272&a=true&file=PXL_20220923_221731025_1_1.jpg" alt="Avatar" style="
+					border-radius: 50%;
+					width: 150px;
+					height: 150px;
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 25px;
+					margin-top: -150px;
+					color: #fff;
+					border-radius: 100%;"> 
+				<p><strong>Ludwig:</strong> Hey there,<br />
+					Nice to see you on my landing page. You can take a look at my projects. The most interesting is maybe BisonWatch. It is a web service to monitor the course catalogue of my university. More infos in German below :)
+					<p>You'll never walk alone!<br />
+Ludwig  </p>
+<p><em><strong>Editorial Comment:</strong> I hope you have some fun with Ludwig's Projects. He is a big advocate of Open Source.</em></p>
+			</div>
+		</div>
+		<span class="timeline-author">Ludwig, Open Source Advocate</span>
+	</div>
+
+
+		<section id="conference-timeline">
+			
+		<!--<div class="timeline-start">April</div>
+			<div class="conference-center-line"></div>-->
+
+			
+			<div class="conference-timeline-content">
+
+			<!--
+			[begin chapter template]
+			<div class="chapter-start" style="display: flex;">
+				<div style="width: 30%; margin: auto;"><hr></div>
+				<div class="chapter-start-title" style="width: 30%">[titel]</div>
+				<div style="width: 30%; margin: auto;"><hr></div>
+			</div>
+			[end chapter template]
+			-->
+			
+
+<div class="timeline-article">
+	<div class="content-right-container" style="width: 100%; padding-top: 21px;">
+		<div class="content-right" style="							
+			position: relative;
+			border: 2px solid var(--button-color);
+			border-radius: 10px;
+			padding: 25px 25px;
+			margin-top: 50px;
+			box-shadow: 1 10px 30px rgba(0,0,0,.03);
+			background-color: var(--card-color);
+		">
+			<div class="meta-date" style="	  
+				position: relative;
+				width: 62px;
+				height: 62px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: -55px;
+				margin-bottom: 15px;
+				color: var(--card-color);
+				border-radius: 100%;
+				background: var(--button-color);
+			">
+				<span class="date" style="
+					display: block;
+					text-align: center;
+					font-weight: 900;
+					font-size: 30px;
+					line-height: 40px;
+				">12</span>
+				<span class="month" style="
+					display: block;
+					text-align: center;
+					font-weight: 900;
+					font-size: 18px;
+					line-height: 10px;
+				">Okt</span>
+			</div>
+			<p> <img style="margin-bottom: 1em;" src="https://social.bau-ha.us/system/media_attachments/files/109/152/978/560/574/825/original/dff13f61a073bf21.png" width="100%" title="Sharepic für Bisonwatch. Überschrift &quot;WiSe 2022&quot; auf einem blauen Kleks. Im Hintergrund ein Netzwerk aus verschiedenfarbigen Punkten, die Lehrendenvisualisierung von BisonWatch."><br>
+<p>Habe in BisonWatch ( <a href="https://www.uni-weimar.de/bisonwatch" rel="nofollow noopener noreferrer" target="_blank"><span class="invisible">https://www.</span><span class="">uni-weimar.de/bisonwatch</span><span class="invisible"></span></a> ) die Daten fürs Wintersemester 2022/23 eingepflegt. Viel Spaß beim Kurse durchstöbern &lt;3<br />Pinnwand: <a href="https://www.uni-weimar.de/de/universitaet/aktuell/pinnwaende/titel/bisonwatch-explore-the-course-catalogue/" rel="nofollow noopener noreferrer" target="_blank"><span class="invisible">https://www.</span><span class="ellipsis">uni-weimar.de/de/universitaet/</span><span class="invisible">aktuell/pinnwaende/titel/bisonwatch-explore-the-course-catalogue/</span></a></p> </p>
+		</div>
+	</div>
+	<span class="timeline-author">mastodon: @viji5369@social.bau-ha.us</span>
+</div>
+		<!-- // Vertical Timeline -->
+			</div>
+		</section>
+
+
+
+		<div style="width: 80%; margin: 0 auto; margin-top: 50px;"><hr></div>
+		<div style="width: 60%; margin: 0 auto; padding-bottom: 2em; text-align: center; font-size: 0.6em;">
+			
+			Welcome to my Github Landing Page. I'm a german Computer Science Student. <br>
+			<br>
+			Maybe I should add some more Info here later. #ToDo
+		</div>
+	</div>
+
+</body>
+</html>
